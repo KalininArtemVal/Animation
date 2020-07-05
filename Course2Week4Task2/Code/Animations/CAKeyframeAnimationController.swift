@@ -64,9 +64,9 @@ extension CAKeyframeAnimationController {
         let animation = CAKeyframeAnimation(keyPath: "position")
         animation.path = path
         animation.rotationMode = CAAnimationRotationMode.rotateAuto
-        animation.speed = 6.0
         animation.timeOffset = 0.0
-        animation.duration = 6.0
+        animation.duration = 6
+        animation.repeatCount = .infinity
         animation.calculationMode = CAAnimationCalculationMode.paced
         self.orangeView.layer.add(animation, forKey: "animate position along path")
     }
