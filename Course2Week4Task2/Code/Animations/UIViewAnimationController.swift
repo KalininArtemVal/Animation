@@ -41,9 +41,10 @@ class UIViewAnimationController: UIViewController {
         UIView.animate(withDuration: 1) {
             
             
-            self.flipButton.transform = CGAffineTransform(rotationAngle: .pi)
-            self.view.transform = .identity
+            self.flipButton.transform = self.flipButton.transform.rotated(by: .pi)
+            self.flipButton.layer.position = self.flipButton.center
             self.view.transform = self.view.transform.rotated(by: .pi)
+            self.view.layer.position = self.view.center
         }
         
         
