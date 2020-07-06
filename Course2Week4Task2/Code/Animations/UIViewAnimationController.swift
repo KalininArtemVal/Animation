@@ -15,20 +15,37 @@ class UIViewAnimationController: UIViewController {
     var dynamicAnimatonr: UIDynamicAnimator!
     
     override func viewDidLoad() {
-        viewDidLoad()
+        super.viewDidLoad()
         let gesterForOrange = UITapGestureRecognizer(target: self, action: #selector(self.animationViewTapHandler(sender:)))
         self.animationView.addGestureRecognizer(gesterForOrange)
     }
     
     @IBAction func animationViewTapHandler(sender: UITapGestureRecognizer) {
+        UIView.animate(withDuration: 1) {
+        let value = CGPoint(x: 390.0, y: self.animationView.center.y)
+        let animation = CABasicAnimation(keyPath: "key")
+        animation.fromValue = self.animationView.center
+        animation.toValue = value
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        self.animationView.layer.add(animation, forKey: "key")
+        self.animationView.layer.position = value
+        self.animationView.transform = CGAffineTransform(rotationAngle: .pi)
+        
+        let groupeAnimation = CAAnimationGroup()
+                           groupeAnimation.animations = [animation]
+        }
         
     }
     
     @IBAction func flipButtonTapHandler(sender: UIButton) {
+        UIView.animate(withDuration: 1) {
+            
+            
+            self.flipButton.transform = CGAffineTransform(rotationAngle: .pi)
+            self.view.transform = .identity
+            self.view.transform = self.view.transform.rotated(by: .pi)
+        }
         
         
     }
-    
-    
-    
 }

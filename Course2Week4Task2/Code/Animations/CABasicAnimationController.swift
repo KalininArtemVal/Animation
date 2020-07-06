@@ -54,7 +54,7 @@ class CABasicAnimationController: UIViewController {
             self.blueView.layer.add(moveAnimation, forKey: "move")
             self.blueView.layer.position = value
             
-            self.blueView.transform = CGAffineTransform(rotationAngle: 2 * .pi / 3)
+            self.blueView.transform = CGAffineTransform(rotationAngle: -10 * .pi / 8)
             
             let groupeAnimation = CAAnimationGroup()
             groupeAnimation.animations = [moveAnimation]

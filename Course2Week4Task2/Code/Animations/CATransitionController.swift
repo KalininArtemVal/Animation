@@ -23,7 +23,8 @@ class CATransitionController: UIViewController {
 
         transition.type = CATransitionType.moveIn
         transition.repeatDuration = 0
-
+        
+        
         self.textLabel.layer.add(transition, forKey: "change")
         self.textLabel.textColor = UIColor.green
         self.textLabel.text = "Sliding!"
