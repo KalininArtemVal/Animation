@@ -48,6 +48,7 @@ class CATransitionController: UIViewController {
 }
 
 extension CATransitionController: CAAnimationDelegate {
+    // Убиввем nextTransition
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         nextTransition()
     }

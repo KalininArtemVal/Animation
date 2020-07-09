@@ -21,17 +21,17 @@ class UIViewAnimationController: UIViewController {
     
     @IBAction func animationViewTapHandler(sender: UITapGestureRecognizer) {
         UIView.animate(withDuration: 1) {
-        let value = CGPoint(x: 390.0, y: self.animationView.center.y)
-        let animation = CABasicAnimation(keyPath: "key")
-        animation.fromValue = self.animationView.center
-        animation.toValue = value
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-        self.animationView.layer.add(animation, forKey: "key")
-        self.animationView.layer.position = value
-        self.animationView.transform = CGAffineTransform(rotationAngle: .pi)
-        
-        let groupeAnimation = CAAnimationGroup()
-                           groupeAnimation.animations = [animation]
+            let value = CGPoint(x: 390.0, y: self.animationView.center.y)
+            let animation = CABasicAnimation(keyPath: "key")
+            animation.fromValue = self.animationView.center
+            animation.toValue = value
+            animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+            self.animationView.layer.add(animation, forKey: "key")
+            self.animationView.layer.position = value
+            self.animationView.transform = CGAffineTransform(rotationAngle: .pi)
+            
+            let groupeAnimation = CAAnimationGroup()
+            groupeAnimation.animations = [animation]
         }
     }
     

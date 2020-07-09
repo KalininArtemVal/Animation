@@ -17,11 +17,11 @@ class CAKeyframeAnimationController: UIViewController {
     @IBAction func shakeAnimationTapHandler(sender: UIButton) {
         shake()
     }
-
+    
     @IBAction func sinAnimationTapHandler(sender: UIButton) {
         moveView()
     }
-
+    
     // MARK: - Life cycle
     
     override func viewDidLoad() {
