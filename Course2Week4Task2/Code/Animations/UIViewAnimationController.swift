@@ -12,7 +12,6 @@ class UIViewAnimationController: UIViewController {
     @IBOutlet weak var animationView: UIView!
     @IBOutlet weak var flipButton: UIButton!
     
-    var dynamicAnimatonr: UIDynamicAnimator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,19 +33,14 @@ class UIViewAnimationController: UIViewController {
         let groupeAnimation = CAAnimationGroup()
                            groupeAnimation.animations = [animation]
         }
-        
     }
     
     @IBAction func flipButtonTapHandler(sender: UIButton) {
         UIView.animate(withDuration: 1) {
-            
-            
             self.flipButton.transform = self.flipButton.transform.rotated(by: .pi)
             self.flipButton.layer.position = self.flipButton.center
             self.view.transform = self.view.transform.rotated(by: .pi)
             self.view.layer.position = self.view.center
         }
-        
-        
     }
 }

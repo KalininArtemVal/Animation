@@ -10,33 +10,48 @@ import UIKit
 class CATransitionController: UIViewController {
     
     @IBOutlet weak var textLabel: UILabel!
-
+    
     @IBAction func swipeHandler(_ sender: UISwipeGestureRecognizer) {
+        
         transition()
     }
     
-    private func transition() {
+    func transition() {
+        // создаем Транзишн
+        let transitionText = CATransition()
+        transitionText.delegate = self
         
-        
-        let transition = CATransition()
-        transition.duration = 1.0
-
-        transition.type = CATransitionType.moveIn
-        transition.repeatDuration = 0
-        
-        
-        self.textLabel.layer.add(transition, forKey: "change")
+        // устанавливаем параметры Транзишн
+        transitionText.duration = 1.0
+        transitionText.type = CATransitionType.moveIn
+        transitionText.duration = 1.0
+        transitionText.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         self.textLabel.textColor = UIColor.green
         self.textLabel.text = "Sliding!"
+        self.textLabel.layer.add(transitionText, forKey: nil)
+    }
+    
+    func nextTransition(_ duration: TimeInterval = 0.5, completionDelegate: CAAnimationDelegate? = nil) {
+        // создаем Транзишн
+        let transition = CATransition()
+        transition.delegate = completionDelegate
         
-
-        let nextTransition = CATransition()
-        nextTransition.duration = 1.0
-        nextTransition.type = CATransitionType.fade
-        
-        self.textLabel.layer.add(nextTransition, forKey: "changeTwo")
+        // устанавливаем параметры Транзишн
+        transition.duration = 1.0
+        transition.type = CATransitionType.fade
+        transition.duration = 1.0
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         self.textLabel.textColor = UIColor.orange
-        
-        
+        self.textLabel.text = "Instal text"
+        self.textLabel.layer.add(transition, forKey: "change")
     }
 }
+
+extension CATransitionController: CAAnimationDelegate {
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        nextTransition()
+    }
+}
+
+
+
